@@ -119,6 +119,7 @@ def fourSumCount(A, B, C, D):
 
     return res
 
+
 if __name__ == '__main__':
     # num_list = np.array([
     #     9, 43, 12, 13, 1, 54, 20, 27, 2

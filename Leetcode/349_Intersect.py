@@ -26,7 +26,7 @@ class Solution(object):
         #         j += 1
         #     elif s_nums1[i] < s_nums2[j]:
         #         i += 1
-        #
+
         # 方法二：利用hash存入nums1每一元素的出现次数，再遍历nums2在hash中看是否存在相同元素
         dict = {}
         intersect = []
