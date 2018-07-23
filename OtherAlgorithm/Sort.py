@@ -17,8 +17,8 @@ def qk_sort_entry(nums, begin, end):
         return
 
     mid = qkpass(nums, begin, end)
-    qk_sort(nums, begin, mid - 1)
-    qk_sort(nums, mid + 1, end)
+    qk_sort_entry(nums, begin, mid - 1)
+    qk_sort_entry(nums, mid + 1, end)
     return
 
 

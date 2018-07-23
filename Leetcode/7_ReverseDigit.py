@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 class Solution(object):
     def reverse(self, x):
         """
@@ -16,6 +19,12 @@ class Solution(object):
             return 0
 
         return res
+
+
+# 另附：map/reduce函数组合实现str->int
+def str_to_int(s):
+    DIGIT = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+    return reduce(lambda x, y: x * 10 + y, map(lambda x: DIGIT[x], s))
 
 
 if __name__ == '__main__':
