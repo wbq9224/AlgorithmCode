@@ -1,4 +1,4 @@
-from Leetcode.AimOffer.ListNode import *
+from Leetcode.OtherAlgorithm.ListNode import *
 
 
 def merge_list(head1, head2):

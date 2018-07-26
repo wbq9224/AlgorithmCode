@@ -170,7 +170,6 @@ def merge(nums, temp, left, mid, right):  # 将两个有序子序列合并为一
         t += 1
     if i <= mid:
         temp[t: t + mid - i] = nums[i: mid + 1]
-        t += mid - i
     if j <= right:
         temp[t: t + right - j] = nums[j: right + 1]
     nums[left:right + 1] = temp[:right - left + 1]

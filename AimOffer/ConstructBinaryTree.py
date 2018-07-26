@@ -1,6 +1,3 @@
-import numpy as np
-
-
 class TreeNode:
     def __init__(self, value, left, right):
         self.value = value
@@ -74,12 +71,8 @@ if __name__ == '__main__':
     #     4, 7, 2, 1, 5, 3, 8, 6
     # ])
 
-    pre_order = np.array([
-        5, 3, 2, 4, 6, 7
-    ])
-    in_order = np.array([
-        2, 3, 4, 5, 6, 7
-    ])
+    pre_order = [5, 3, 2, 4, 6, 7]
+    in_order = [2, 3, 4, 5, 6, 7]
 
     root = construct(pre_order, in_order, 0, len(pre_order) - 1, 0, len(in_order) - 1)
 

@@ -1,5 +1,5 @@
 import random
-from Leetcode.AimOffer.ListNode import *
+from Leetcode.OtherAlgorithm.ListNode import *
 
 
 def delete_node(head, node):

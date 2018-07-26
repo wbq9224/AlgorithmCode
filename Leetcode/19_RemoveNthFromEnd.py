@@ -4,7 +4,7 @@
 #         self.val = x
 #         self.next = None
 
-from Leetcode.AimOffer.ListNode import *
+from Leetcode.OtherAlgorithm.ListNode import *
 
 class Solution(object):
     def removeNthFromEnd(self, head, n):

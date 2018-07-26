@@ -1,4 +1,4 @@
-from Leetcode.AimOffer.ListNode import *
+from Leetcode.OtherAlgorithm.ListNode import *
 
 
 def find_kth_node_to_tail(head, k):

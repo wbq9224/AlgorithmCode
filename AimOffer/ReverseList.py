@@ -1,4 +1,4 @@
-from Leetcode.AimOffer.ListNode import *
+from Leetcode.OtherAlgorithm.ListNode import *
 
 
 def reverse_list(head):
