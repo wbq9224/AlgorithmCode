@@ -1,5 +1,4 @@
-from Leetcode.AimOffer.ConstructBinaryTree import *
-
+from AimOffer.ConstructBinaryTree import *
 
 def convert(root):
     if root is None:

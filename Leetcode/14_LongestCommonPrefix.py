@@ -21,6 +21,7 @@ class Solution:
         # 方法二：利用zip，注意zip(str)与zip(*str)的用法
         ans = ""
         for i in zip(*strs):
+            print(i)
             if len(set(i)) > 1:
                 return ans
             ans += i[0]
