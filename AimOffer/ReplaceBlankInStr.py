@@ -1,5 +1,5 @@
 
-def replace(str):
+def replace(s):
     if str is None:
         return
 
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     e = "abc "
     f = " abc"
     g = None
-    print(replace(g))
+    print(replace(a))

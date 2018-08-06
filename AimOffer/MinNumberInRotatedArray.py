@@ -15,7 +15,7 @@ def min(arr):
             break
 
         mid = int((left + right) / 2)
-        if arr[left] == arr[mid] and arr[left] == arr[right]:  # 处理有多个相同数字的情况，此时无法使用二分法，只能通过顺序遍历进行查找
+        if arr[left] == arr[mid] == arr[right]:  # 处理有多个相同数字的情况，此时无法使用二分法，只能通过顺序遍历进行查找
             min_index = left
             for i in range(left, right + 1):
                 if arr[i] < arr[min_index]:
@@ -34,7 +34,7 @@ def min(arr):
 
 if __name__ == '__main__':
     a = np.array([
-        1, 2, 2, 2, 0, 1
+        1, 1, 1, 1, 0, 1
     ])
 
     print(min(a))
