@@ -20,8 +20,10 @@ def print_list(head):
         return
 
     p = head
-    while p.next is not None:
-        p = p.next
+    while p:
         print(p.data, end=' ')
+        p = p.next
+
+
 
     print(end='\n')

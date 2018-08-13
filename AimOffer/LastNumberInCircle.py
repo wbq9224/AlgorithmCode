@@ -19,4 +19,4 @@ def josephuse(n, m):
 
 
 if __name__ == '__main__':
-    print(josephuse(5, 3))
+    print(josephuse(0, 0))

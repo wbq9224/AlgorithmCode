@@ -9,6 +9,10 @@
 
 
 def number_of_one(num):
+    if num < 0:
+        # 若为负数则转为补码表示
+        num = 2 ** 32 + num
+
     count = 0
     while num != 0:
         count += 1
@@ -18,4 +22,4 @@ def number_of_one(num):
 
 
 if __name__ == '__main__':
-    print(number_of_one(521))
+    print(number_of_one(-3))

@@ -26,8 +26,8 @@ def find_last_K(nums, k):
 
 
 if __name__ == '__main__':
-    number = [1, 2, 3, 3, 3, 3, 4, 5]
-    k = 4
+    number = [1,2,3,3,3,3]
+    k = 3
 
     print(find_last_K(number, k) - find_first_K(number, k) + 1)
 

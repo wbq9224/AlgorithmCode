@@ -18,6 +18,6 @@ def permutation(str, begin):
 
 
 if __name__ == '__main__':
-    str = list("abc")
+    str = list("aa")
 
     permutation(str, 0)

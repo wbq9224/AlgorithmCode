@@ -33,6 +33,6 @@ def match_core(s, pattern):
 
 
 if __name__ == '__main__':
-    s = "bcbbabab"
-    pattern_s = ".*a*a"
+    s = "a"
+    pattern_s = ".*"
     print(match(s, pattern_s))

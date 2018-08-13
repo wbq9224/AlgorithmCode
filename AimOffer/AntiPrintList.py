@@ -1,5 +1,5 @@
 import random
-from Leetcode.OtherAlgorithm.ListNode import *
+from OtherAlgorithm.ListNode import *
 
 
 # 使用递归完成继续输出单链表
