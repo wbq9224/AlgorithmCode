@@ -5,7 +5,7 @@
 #         self.left = None
 #         self.right = None
 
-from Leetcode.AimOffer.ConstructBinaryTree import *
+from AimOffer.ConstructBinaryTree import *
 
 class Solution(object):
     def levelOrder(self, root):
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     in_o = [6, 5, 7, 2, 4, 3, 9, 1, 8]
     root = construct(pre, in_o, 0, len(pre) - 1, 0, len(in_o) - 1)
 
-    Solution().levelOrder(root)
+    print(Solution().levelOrder(root))

@@ -1,29 +1,32 @@
 class StackWithMax:
     def __init__(self):
-        self.data = []
-        self.max = []
+        self.data_stack = []
+        self.max_stack = []
 
     def __len__(self):
-        return len(self.data)
+        return len(self.data_stack)
 
-    def push(self, value):
-        self.data.append(value)
-        if len(self.max) == 0 or value > self.max[len(self.max) - 1]:
-            self.max.append(value)
+    def push(self, num):
+        if num is None:
+            return
+        self.data_stack.append(num)
+        if not self.max_stack or num > self.max_stack[-1]:
+            self.max_stack.append(num)
         else:
-            self.max.append(self.max[len(self.max) - 1])
+            self.max_stack.append(self.max_stack[-1])
+        return
 
     def pop(self):
-        if len(self.data) == 0:
-            raise IndexError('当前栈为空，无法执行pop操作')
-        ele = self.data.pop()
-        self.max.pop()
+        if not self.data_stack:
+            return
+        ele = self.data_stack.pop()
+        self.max_stack.pop()
         return ele
 
     def get_max(self):
-        if len(self.data) == 0:
-            raise IndexError('当前栈为空，无法执行max操作')
-        return self.max[len(self.max) - 1]
+        if not self.data_stack:
+            return
+        return self.max_stack[-1]
 
 
 class QueueWithMax:
@@ -34,49 +37,51 @@ class QueueWithMax:
     def __len__(self):
         return len(self.stack1) + len(self.stack2)
 
-    def push(self, value):
-        self.stack1.push(value)
+    def push(self, num):
+        self.stack1.push(num)
+        return
 
     def pop(self):
-        if len(self.stack1) == 0 and len(self.stack2) == 0:
-            raise IndexError('当前队列为空，无法执行pop操作')
-        if len(self.stack2) == 0:
-            for i in range(len(self.stack1)):
-                ele = self.stack1.pop()
-                self.stack2.push(ele)
-        return self.stack2.pop()
+        if not self.stack1 and not self.stack2:
+            return
+        if self.stack2:
+            self.stack2.pop()
+            return
+        while self.stack1:
+            self.stack2.push(self.stack1.pop())
+        self.stack2.pop()
+        return
 
     def get_max(self):
-        if len(self.stack1) == 0 and len(self.stack2) == 0:
-            raise IndexError('当前队列为空，无法执行max操作')
-        if len(self.stack1) == 0:
-            max = self.stack2.get_max()
-        elif len(self.stack2) == 0:
-            max = self.stack1.get_max()
-        else:
-            m1 = self.stack1.get_max()
-            m2 = self.stack2.get_max()
-            if m1 > m2:
-                max = m1
-            else:
-                max = m2
-        return max
+        if not self.stack1 and not self.stack2:
+            return
+        if not self.stack1:
+            return self.stack2.get_max()
+        if not self.stack2:
+            return self.stack1.get_max()
+        return max(self.stack1.get_max(), self.stack2.get_max())
+
+
+class Solution:
+    def maxInWindows(self, num, size):
+        # write code here
+        if not num or not size:
+            return []
+        queue = QueueWithMax()
+        res = []
+        for ele in num:
+            queue.push(ele)
+            if len(queue) == size:
+                res.append(queue.get_max())
+                queue.pop()
+        return res
 
 
 if __name__ == '__main__':
-    num = [10, 14, 12, 11]
-    k = 1
+    num = [2,3,4,2,6,2,5,1]
+    k = 3
 
-    max = []
-
-    queue = QueueWithMax()
-    for i in range(len(num)):
-        queue.push(num[i])
-        if len(queue) == k:
-            max.append(queue.get_max())
-            queue.pop()
-
-    print(max)
+    print(Solution().maxInWindows(num, k))
 
 
 

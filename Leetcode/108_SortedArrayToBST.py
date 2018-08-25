@@ -5,7 +5,7 @@
 #         self.left = None
 #         self.right = None
 
-from Leetcode.AimOffer.ConstructBinaryTree import *
+from AimOffer.ConstructBinaryTree import *
 
 
 class Solution(object):

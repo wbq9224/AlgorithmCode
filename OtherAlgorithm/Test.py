@@ -1,17 +1,26 @@
-from OtherAlgorithm.ListNode import *
+import sys
+
 
 if __name__ == '__main__':
-    head = ListNode(None)
-    for i in range(10):
-        new_node = ListNode(i)
-        add_node(head, new_node)
+    t = int(sys.stdin.readline())
+    res = []
+    for i in range(t):
+        n = int(sys.stdin.readline())
+        strs = []
+        for j in range(n):
+            strs.append(sys.stdin.readline().strip())
 
-    # 正序输出
-    print_list(head)
-
-    p1 = head.next
-    p2 = p1
-
-    p1 = p1.next
-    print(p1.data)
-    print(p2.data)
+        begin = strs[0]
+        flag = False
+        for j in range(1, len(begin) + 1):
+            temp = begin[j:] + begin[:j]
+            for k in range(1, len(strs)):
+                if temp == strs[k] or temp[::-1] == strs[k]:
+                    flag = True
+                    break
+            if flag:
+                break
+        if flag:
+            print('Yeah')
+        else:
+            print('Sad')

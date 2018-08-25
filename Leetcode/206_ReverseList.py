@@ -3,7 +3,7 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-from Leetcode.OtherAlgorithm.ListNode import *
+from OtherAlgorithm.ListNode import *
 
 
 class Solution:
