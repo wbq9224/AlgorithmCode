@@ -1,6 +1,6 @@
 class ListNode:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, value):
+        self.val = value
         self.next = None
 
 
@@ -21,7 +21,7 @@ def print_list(head):
 
     p = head
     while p:
-        print(p.data, end=' ')
+        print(p.val, end=' ')
         p = p.next
 
 

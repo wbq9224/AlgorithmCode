@@ -1,5 +1,7 @@
+from OtherAlgorithm.ListNode import *
+
 # 快速排序：不稳定，最好o（nlogn），最坏o（n**2），平均o（nlogn）
-def qkpass(nums, left, right):
+def patition(nums, left, right):
     key = nums[right]
     while left < right:
         while left < right and nums[left] <= key:
@@ -16,7 +18,7 @@ def qk_sort_entry(nums, begin, end):
     if begin > end:
         return
 
-    mid = qkpass(nums, begin, end)
+    mid = patition(nums, begin, end)
     qk_sort_entry(nums, begin, mid - 1)
     qk_sort_entry(nums, mid + 1, end)
     return
@@ -28,6 +30,44 @@ def qk_sort(nums):
 
     qk_sort_entry(nums, 0, len(nums) - 1)
     return
+
+
+# 单链表快速排序
+def patition2(p_begin, p_end):
+    key = p_begin.val
+    left, right = p_begin, p_begin.next
+    while right != p_end:
+        if right.val < key:
+            left = left.next
+
+            temp = left.val
+            left.val = right.val
+            right.val = temp
+
+        right = right.next
+
+    temp = left.val
+    left.val = p_begin.val
+    p_begin.val = temp
+    return left
+
+
+def qk_sort_entry2(p_begin, p_end):
+    if p_begin == p_end:
+        return
+
+    p_mid = patition2(p_begin, p_end)
+    qk_sort_entry2(p_begin, p_mid)
+    qk_sort_entry2(p_mid.next, p_end)
+    return
+
+
+def qk_sort2(p_root):
+    if not p_root:
+        return
+
+    qk_sort_entry2(p_root, None)
+    return p_root
 
 
 # 冒泡排序：稳定，最好o(n), 最坏o（n ** 2）, 平均o（n ** 2）
@@ -168,10 +208,18 @@ def merge(nums, temp, left, mid, right):  # 将两个有序子序列合并为一
             temp[t] = nums[j]
             j += 1
         t += 1
-    if i <= mid:
-        temp[t: t + mid - i] = nums[i: mid + 1]
-    if j <= right:
-        temp[t: t + right - j] = nums[j: right + 1]
+    while i <= mid:
+        temp[t] = nums[i]
+        i += 1
+        t += 1
+    while j <= right:
+        temp[t] = nums[j]
+        j += 1
+        t += 1
+    # if i <= mid:
+    #     temp[t: t + mid - i] = nums[i: mid + 1]
+    # if j <= right:
+    #     temp[t: t + right - j] = nums[j: right + 1]
     nums[left:right + 1] = temp[:right - left + 1]
 
 
@@ -206,6 +254,16 @@ if __name__ == '__main__':
     # heap_sort(number)
     # insert_sort(number)
     # lsd(number)
-    merge_sort(number)
+    # merge_sort(number)
 
-    print(number)
+    head = ListNode(None)
+    for num in number:
+        node = ListNode(num)
+        add_node(head, node)
+
+    print_list(head.next)
+
+    qk_sort2(head.next)
+
+    print_list(head.next)
+    # print(number)
